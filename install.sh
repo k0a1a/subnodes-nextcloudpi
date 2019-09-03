@@ -64,7 +64,7 @@ echo "// Welcome to Subnodes!"
 echo "// ~~~~~~~~~~~~~~~~~~~~"
 echo ""
 
-read -p "This installation script will install a lighttpd / php / mysql stack, set up a wireless access point and captive portal, and provide the option of configuring a BATMAN-ADV mesh point. Make sure you have one (or two, if installing the additional mesh point) USB wifi radios connected to your Raspberry Pi before proceeding. Press any key to continue..."
+read -p "This installation script will set up a wireless access point and captive portal" #, and provide the option of configuring a BATMAN-ADV mesh point. Make sure you have one (or two, if installing the additional mesh point) USB wifi radios connected to your Raspberry Pi before proceeding. Press any key to continue..."
 echo ""
 clear
 
@@ -117,20 +117,20 @@ esac
 #
 
 # update the packages
-echo "Updating apt-get and installing iw, dnsutils, samba, samba-common-bin, batctl, lighttpd, sqlite3 and php7.0 packages..."
-apt-get update && apt-get install -y iw dnsutils samba samba-common-bin batctl lighttpd sqlite3 php7.3 php7.3-common php7.3-cgi php7.3-sqlite3
-lighttpd-enable-mod fastcgi
-lighttpd-enable-mod fastcgi-php
+echo "Updating apt-get and installing iw, dnsutils, samba, samba-common-bin, batctl packages..." # lighttpd, sqlite3 and php7 packages..."
+apt-get update && apt-get install -y iw dnsutils samba samba-common-bin batctl #lighttpd sqlite3 php7.3 php7.3-common php7.3-cgi php7.3-sqlite3
+#lighttpd-enable-mod fastcgi
+#lighttpd-enable-mod fastcgi-php
 # reconfigure lighttpd
-sed 's/server.port.*= 80/server.port = 8080/g' /etc/lighttpd/lighttpd.conf
+#sed -i 's/server.port.*= 80/server.port = 8080/g' /etc/lighttpd/lighttpd.conf
 # restart lighttpd
-service lighttpd force-reload
+#service lighttpd force-reload
 # Change the directory owner and group
-chown www-data:www-data /var/www
+#chown www-data:www-data /var/www
 # allow the group to write to the directory
-chmod 775 /var/www
+#chmod 775 /var/www
 # Add the pi user to the www-data group
-usermod -a -G www-data pi
+#usermod -a -G www-data pi
 echo ""
 
 echo "Loading the subnodes configuration file..."
