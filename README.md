@@ -1,4 +1,4 @@
-subnodes-lighttpd
+subnodes-lighttpd (nextcloudpi adaptation)
 =================
 
 ![](https://david-dm.org/chootka/subnodes.svg)
