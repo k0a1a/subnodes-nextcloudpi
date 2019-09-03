@@ -64,7 +64,7 @@ echo "// Welcome to Subnodes!"
 echo "// ~~~~~~~~~~~~~~~~~~~~"
 echo ""
 
-read -p "This installation script will set up a wireless access point and captive portal" #, and provide the option of configuring a BATMAN-ADV mesh point. Make sure you have one (or two, if installing the additional mesh point) USB wifi radios connected to your Raspberry Pi before proceeding. Press any key to continue..."
+read -p "This installation script will set up a wireless access point and captive portal. Press any key to continue..."
 echo ""
 clear
 
@@ -93,8 +93,8 @@ fi
 case $DO_SET_MESH in
 	[Yy]* )
 
-    echo "Mesh point mode is not available"
-    exit 0
+    #echo "Mesh point mode is not available"
+    #exit 0
 
 		echo -en "Checking that USB wifi radio is available for mesh point..."
 		readarray IW < <(iw dev | awk '$1~"phy#"{PHY=$1}; $1=="Interface" && $2!="wlan0"{WLAN=$2; sub(/#/, "", PHY); print PHY " " WLAN}')
