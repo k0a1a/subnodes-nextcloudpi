@@ -1,4 +1,4 @@
-subnodes (nextcloudpi adaptation)
+subnodes (NextCloudPI adaptation)
 =================
 
 ![](https://david-dm.org/chootka/subnodes.svg)
