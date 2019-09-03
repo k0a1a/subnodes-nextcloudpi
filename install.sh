@@ -92,6 +92,10 @@ fi
 # now check that iw list finds a radio other than wlan0 if mesh point option was set to 'y' in config file
 case $DO_SET_MESH in
 	[Yy]* )
+
+    echo "Mesh point mode is not available"
+    exit 0
+
 		echo -en "Checking that USB wifi radio is available for mesh point..."
 		readarray IW < <(iw dev | awk '$1~"phy#"{PHY=$1}; $1=="Interface" && $2!="wlan0"{WLAN=$2; sub(/#/, "", PHY); print PHY " " WLAN}')
 
@@ -163,7 +167,7 @@ fi
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # DISABLE DHCPCD SINCE WE ARE RELYING ON STATIC IPs IN A CLOSED NETWORK
 #
-systemctl disable dhcpcd
+#systemctl disable dhcpcd
 systemctl enable networking
 
 
@@ -238,7 +242,11 @@ echo "Checking whether to configure mesh point or not..."
 
 case $DO_SET_MESH in
 	[Yy]* )
+
 		clear
+    echo "Mesh point mode is not available"
+    exit 0
+
 		echo "Configuring Raspberry Pi as a BATMAN-ADV mesh point..."
 		echo ""
 		echo "Enabling the batman-adv kernel module..."
