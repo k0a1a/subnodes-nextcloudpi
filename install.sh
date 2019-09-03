@@ -118,9 +118,11 @@ esac
 
 # update the packages
 echo "Updating apt-get and installing iw, dnsutils, samba, samba-common-bin, batctl, lighttpd, sqlite3 and php7.0 packages..."
-apt-get update && apt-get install -y iw dnsutils samba samba-common-bin batctl lighttpd sqlite3 php7.0 php7.0-common php7.0-cgi php7.0-sqlite3
+apt-get update && apt-get install -y iw dnsutils samba samba-common-bin batctl lighttpd sqlite3 php7.3 php7.3-common php7.3-cgi php7.3-sqlite3
 lighttpd-enable-mod fastcgi
 lighttpd-enable-mod fastcgi-php
+# reconfigure lighttpd
+sed 's/server.port.*= 80/server.port = 8080/g' /etc/lighttpd/lighttpd.conf
 # restart lighttpd
 service lighttpd force-reload
 # Change the directory owner and group
