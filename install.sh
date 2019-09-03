@@ -93,8 +93,8 @@ fi
 case $DO_SET_MESH in
 	[Yy]* )
 
-    #echo "Mesh point mode is not available"
-    #exit 0
+    echo "Mesh point mode is not available"
+    exit 0
 
 		echo -en "Checking that USB wifi radio is available for mesh point..."
 		readarray IW < <(iw dev | awk '$1~"phy#"{PHY=$1}; $1=="Interface" && $2!="wlan0"{WLAN=$2; sub(/#/, "", PHY); print PHY " " WLAN}')
