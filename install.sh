@@ -166,8 +166,25 @@ fi
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # DISABLE DHCPCD SINCE WE ARE RELYING ON STATIC IPs IN A CLOSED NETWORK
+# CONFIGURE DHCPCD TO ONLY RUN ON ETH0
 #
-#systemctl disable dhcpcd
+
+clear
+echo "Configuring DHCPCD.."
+echo ""
+
+cat <<EOF > /etc/network/interfaces
+profile static_eth0
+static ip_address=192.168.1.23/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1
+
+# fallback to static profile on eth0
+interface eth0
+fallback static_eth0"
+EOF
+
+systemctl restart dhcpcd
 systemctl enable networking
 
 
