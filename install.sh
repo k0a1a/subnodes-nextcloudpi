@@ -175,7 +175,7 @@ echo "Removing DHCPCD, install UDHCPD"
 echo ""
 
 apt-get remove -y dhcpcd5
-apt-get install udhcpd
+apt-get install -y udhcpd
 
 sed -i 's/DHCPD_ENABLED="no"/DHCPD_ENABLED="yes"/' /etc/default/udhcpd
 
