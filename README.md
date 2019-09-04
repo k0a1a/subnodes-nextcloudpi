@@ -31,6 +31,11 @@ Also, if this is your first time connecting to your Raspberry Pi headlessly (i.e
 
         sudo ncp-config
                 CONFIG -> nc-httpsonly -> no
+                
+* wait about 5 minutes until green activity LED stops glowing (system auto-update)
+
+        # run top to see what's happening
+        top
 
 * clone the repository into your home folder (assuming /home/pi)
 
