@@ -22,6 +22,10 @@ Also, if this is your first time connecting to your Raspberry Pi headlessly (i.e
 * write image to SDcard
 
         sudo dd if=NextCloudPi_RPi_07-20-19.img of=/dev/sda bs=1M
+        
+* add file named 'ssh' to boot partition of SDcard
+
+        right-click, 'new file' -> 'ssh' (no extensions)
 
 * set up your Raspberry Pi with a basic configuration
 
