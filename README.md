@@ -30,6 +30,7 @@ Note: If this is your first time connecting to your Raspberry Pi headlessly (i.e
 * connect RPi using Ethernet to your laptop and enable bridging or internet-sharing between your wireless and ethernet connections
 
 * ssh to your RPi
+
          ssh pi@nextcloudpi.local
          (password: raspberry)
 
