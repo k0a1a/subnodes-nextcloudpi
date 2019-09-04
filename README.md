@@ -19,7 +19,7 @@ Note: If this is your first time connecting to your Raspberry Pi headlessly (i.e
 
 * write image to SDcard
 
-        sudo dd if=NextCloudPi_RPi_07-20-19.img of=/dev/sda bs=1M
+        sudo dd if=NextCloudPi_RPi_07-20-19.img of=/dev/sd[x] bs=1M
         
 * add file named 'ssh' to boot partition of SDcard
 
@@ -46,7 +46,6 @@ Note: If this is your first time connecting to your Raspberry Pi headlessly (i.e
 
 * clone the repository into your home folder (assuming /home/pi)
 
-        mkdir subnodes; cd subnodes
         git clone https://github.com/k0a1a/subnodes-nextcloudpi.git  
         cd subnodes-nextcloudpi
 
