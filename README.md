@@ -35,7 +35,7 @@ Also, if this is your first time connecting to your Raspberry Pi headlessly (i.e
 * clone the repository into your home folder (assuming /home/pi)
 
         mkdir subnodes; cd subnodes
-        git clone [this repo] .
+        git clone https://github.com/k0a1a/subnodes-nextcloudpi.git .
 
 * configure your wireless access point and mesh network in subnodes.config in any text editor, or in the command line you can use nano
 
