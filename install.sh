@@ -166,40 +166,23 @@ fi
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# CONFIGURE DHCPCD TO ONLY RUN ON ETH0 and add 9.9.9.9 DNS for queries
+# REMOVE DHCPCD, INSTALL UDHCPD
 # from the RPi 
 #
 
 clear
-echo "Configuring DHCPCD.."
+echo "Removing DHCPCD, install UDHCPD"
 echo ""
 
-cat <<EOF >> /etc/dhcpcd.conf
-profile static_eth0
-static ip_address=192.168.1.23/24
-static routers=192.168.1.1
-static domain_name_servers=192.168.1.1
+apt-get remove -y dhcpcd5
+apt-get install udhcpd
 
-# fallback to static profile on eth0
-interface eth0
-fallback static_eth0"
-EOF
+sed -i 's/DHCPD_ENABLED="no"/DHCPD_ENABLED="yes"/' /etc/default/udhcpd
 
 echo -en "[OK]\n"
 sleep 1
 
-#clear
-#echo "Configuring RESOLVCONF.."
-#echo ""
-
-#cat <<EOF >> /etc/resolvconf.conf
-#name_servers=9.9.9.9
-#EOF
-
-#echo -en "[OK]\n"
-
 systemctl daemon-reload
-systemctl restart dhcpcd
 systemctl enable networking
 
 
@@ -317,7 +300,7 @@ auto lo
 iface lo inet loopback
 
 allow-hotplug eth0
-auto eth0
+#auto eth0
 iface eth0 inet dhcp
 
 auto wlan0
@@ -424,7 +407,7 @@ auto lo
 iface lo inet loopback
 
 allow-hotplug eth0
-auto eth0
+#auto eth0
 iface eth0 inet dhcp
 
 auto wlan0
@@ -432,7 +415,7 @@ iface wlan0 inet static
 address $AP_IP
 netmask $AP_NETMASK
 
-iface default inet dhcp
+#iface default inet dhcp
 EOF
 		rc=$?
 		if [[ $rc != 0 ]] ; then
