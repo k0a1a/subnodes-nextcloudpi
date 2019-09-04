@@ -123,6 +123,7 @@ esac
 # update the packages
 echo "Updating apt-get and installing iw, dnsutils, samba, samba-common-bin, batctl packages..." # lighttpd, sqlite3 and php7 packages..."
 apt-get update && apt-get install -y iw dnsutils samba samba-common-bin batctl #lighttpd sqlite3 php7.3 php7.3-common php7.3-cgi php7.3-sqlite3
+apt-get remove -y openresolv
 #lighttpd-enable-mod fastcgi
 #lighttpd-enable-mod fastcgi-php
 # reconfigure lighttpd
@@ -187,19 +188,19 @@ EOF
 echo -en "[OK]\n"
 sleep 1
 
-clear
-echo "Configuring RESOLVCONF.."
-echo ""
+#clear
+#echo "Configuring RESOLVCONF.."
+#echo ""
 
-cat <<EOF >> /etc/resolvconf.conf
-name_servers=9.9.9.9
-EOF
+#cat <<EOF >> /etc/resolvconf.conf
+#name_servers=9.9.9.9
+#EOF
 
-echo -en "[OK]\n"
+#echo -en "[OK]\n"
 
-systemctl daemon-reload
-systemctl restart dhcpcd
-systemctl enable networking
+#systemctl daemon-reload
+#systemctl restart dhcpcd
+#systemctl enable networking
 
 
 
