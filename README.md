@@ -15,26 +15,27 @@ Assuming you are starting with a fresh [Raspbian Stretch Lite](http://www.raspbe
 
 Also, if this is your first time connecting to your Raspberry Pi headlessly (i.e. via SSH), you must first enable SSH by placing an empty file with no filename extension simple called `ssh` in the root of your SD card.
 
-* write NextCloudPI image to sdcard
+* download NextCloudPI image
 
         https://ownyourbits.com/downloads/NextCloudPi_RPi_07-20-19/
 
+* write image to SDcard
+
+        sudo dd if=NextCloudPi_RPi_07-20-19.img of=/dev/sda bs=1M
+        
+* add file named 'ssh' to boot partition of SDcard
+
+        right-click, 'new file' -> 'ssh' (no extensions)
+
 * set up your Raspberry Pi with a basic configuration
 
-        sudo raspi-config
-
-* set up NextcloudPI to your liking
-
-        https://docs.nextcloudpi.com/en/how-to-configure-nextcloudpi
-
-* update apt-get
-
-        sudo apt-get update
+        sudo ncp-config
+                CONFIG -> nc-httpsonly -> no
 
 * clone the repository into your home folder (assuming /home/pi)
 
         mkdir subnodes; cd subnodes
-        git clone [this repo] .
+        git clone https://github.com/k0a1a/subnodes-nextcloudpi.git .
 
 * configure your wireless access point and mesh network in subnodes.config in any text editor, or in the command line you can use nano
 
