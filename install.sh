@@ -198,9 +198,9 @@ sleep 1
 
 #echo -en "[OK]\n"
 
-#systemctl daemon-reload
-#systemctl restart dhcpcd
-#systemctl enable networking
+systemctl daemon-reload
+systemctl restart dhcpcd
+systemctl enable networking
 
 
 
