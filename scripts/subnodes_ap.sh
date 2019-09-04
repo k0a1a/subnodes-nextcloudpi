@@ -49,7 +49,7 @@ echo $PHY $WLAN0 > /tmp/ap.log
 			# start the hostapd and dnsmasq services
 			service dnsmasq start
 			hostapd -B /etc/hostapd/hostapd.conf
-			service lighttpd start
+			#service lighttpd start
 			;;
 		status)
 		;;
@@ -64,7 +64,7 @@ echo $PHY $WLAN0 > /tmp/ap.log
 
 			/etc/init.d/hostapd stop
             service dnsmasq stop
-            service lighttpd stop
+            #service lighttpd stop
 		;;
 
 		restart)

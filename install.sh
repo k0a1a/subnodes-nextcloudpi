@@ -165,8 +165,8 @@ fi
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# DISABLE DHCPCD SINCE WE ARE RELYING ON STATIC IPs IN A CLOSED NETWORK
-# CONFIGURE DHCPCD TO ONLY RUN ON ETH0
+# CONFIGURE DHCPCD TO ONLY RUN ON ETH0 and add 9.9.9.9 DNS for queries
+# from the RPi 
 #
 
 clear
@@ -184,9 +184,21 @@ interface eth0
 fallback static_eth0"
 EOF
 
-systemctl restart dhcpcd
-systemctl enable networking
+echo -en "[OK]\n"
+sleep 1
 
+clear
+echo "Configuring RESOLVCONF.."
+echo ""
+
+cat <<EOF > /etc/resolvconf.conf
+name_servers=9.9.9.9
+EOF
+
+echo -en "[OK]\n"
+
+systemctl restart dhcpcd
+systemctl restart networking
 
 
 
