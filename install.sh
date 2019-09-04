@@ -173,7 +173,7 @@ clear
 echo "Configuring DHCPCD.."
 echo ""
 
-cat <<EOF >> /etc/network/interfaces
+cat <<EOF >> /etc/dhcpcd.conf
 profile static_eth0
 static ip_address=192.168.1.23/24
 static routers=192.168.1.1
