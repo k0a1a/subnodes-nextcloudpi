@@ -63,6 +63,24 @@ The installation process takes about 5 minutes. After it has completed, you will
 
 From here, fork, build, share your ideas, and have fun!
 
+## extra
+
+### use Pagekite.com service to make your instalnce available over the Internet
+
+* install pagekite package
+
+         sudo apt-get install pagekite
+        
+* configure pagekite
+
+         sudo pagekite --savefile /etc/pagekite.d/99_nextcloud
+         
+* restart pagekite
+
+         sudo service pagekite restart
+         
+
+
 references
 ----------
 * [subnodes website](http://www.subnodes.org/)
