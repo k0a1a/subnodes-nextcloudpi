@@ -173,7 +173,7 @@ clear
 echo "Configuring DHCPCD.."
 echo ""
 
-cat <<EOF > /etc/network/interfaces
+cat <<EOF >> /etc/network/interfaces
 profile static_eth0
 static ip_address=192.168.1.23/24
 static routers=192.168.1.1
@@ -191,14 +191,15 @@ clear
 echo "Configuring RESOLVCONF.."
 echo ""
 
-cat <<EOF > /etc/resolvconf.conf
+cat <<EOF >> /etc/resolvconf.conf
 name_servers=9.9.9.9
 EOF
 
 echo -en "[OK]\n"
 
+systemctl daemon-reload
 systemctl restart dhcpcd
-systemctl restart networking
+systemctl enable networking
 
 
 
