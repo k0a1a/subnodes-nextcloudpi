@@ -491,7 +491,8 @@ esac
 
 clear
 update-rc.d hostapd remove
-update-rc.d dnsmasq enable
+#update-rc.d dnsmasq enable
+systemctl enable dnsmasq
 
 read -p "Do you wish to reboot now? [N] " yn
 	case $yn in
