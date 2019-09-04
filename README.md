@@ -48,6 +48,7 @@ Note: If this is your first time connecting to your Raspberry Pi headlessly (i.e
 
         mkdir subnodes; cd subnodes
         git clone https://github.com/k0a1a/subnodes-nextcloudpi.git .
+        cd subnodes-nextcloudpi
 
 * configure your wireless access point and mesh network in subnodes.config in any text editor, or in the command line you can use nano
 
@@ -58,8 +59,6 @@ Note: If this is your first time connecting to your Raspberry Pi headlessly (i.e
         sudo ./install.sh
 
 The installation process takes about 5 minutes. After it has completed, you will have a running NextCloud instance and a wireless access point. Connect to http://nextcloudpi.local to activate your instalnce!
-
-From here, fork, build, share your ideas, and have fun!
 
 ## extra
 
