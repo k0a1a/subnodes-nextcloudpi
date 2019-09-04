@@ -50,7 +50,7 @@ Note: If this is your first time connecting to your Raspberry Pi headlessly (i.e
         git clone https://github.com/k0a1a/subnodes-nextcloudpi.git  
         cd subnodes-nextcloudpi
 
-* configure your wireless access point and mesh network in subnodes.config in any text editor, or in the command line you can use nano
+* configure your wireless access point in subnodes.config in any text editor, or in the command line you can use nano
 
         nano subnodes.config
 
