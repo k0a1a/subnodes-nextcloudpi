@@ -70,10 +70,14 @@ From here, fork, build, share your ideas, and have fun!
 * install pagekite package
 
          sudo apt-get install pagekite
-        
+
+* sign-up with pagekite service
+
+         sudo pagekite --signup --savefile /etc/pagekite.d/99_nextcloud
+
 * configure pagekite
 
-         sudo pagekite --savefile /etc/pagekite.d/99_nextcloud
+         sudo pagekite [name-for-your-site].pagekite.com --savefile /etc/pagekite.d/99_nextcloud
          
 * restart pagekite
 
