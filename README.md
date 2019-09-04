@@ -21,15 +21,8 @@ Also, if this is your first time connecting to your Raspberry Pi headlessly (i.e
 
 * set up your Raspberry Pi with a basic configuration
 
-        sudo raspi-config
-
-* set up NextcloudPI to your liking
-
-        https://docs.nextcloudpi.com/en/how-to-configure-nextcloudpi
-
-* update apt-get
-
-        sudo apt-get update
+        sudo ncp-config
+                CONFIG -> nc-httpsonly -> no
 
 * clone the repository into your home folder (assuming /home/pi)
 
