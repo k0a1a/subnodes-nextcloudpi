@@ -27,9 +27,18 @@ Also, if this is your first time connecting to your Raspberry Pi headlessly (i.e
 
         right-click, 'new file' -> 'ssh' (no extensions)
 
+* put SDcard into your RPi, and power it on
+
+* connect RPi using Ethernet to your laptop and enable bridging or internet-sharing between your wireless and ethernet connections
+
+* ssh to your RPi
+         ssh pi@nextcloudpi.local
+         (password: raspberry)
+
 * set up your Raspberry Pi with a basic configuration
 
         sudo ncp-config
+                (Say 'No' at update prompt)
                 CONFIG -> nc-httpsonly -> no
                 
 * wait about 5 minutes until green activity LED stops glowing (system auto-update)
@@ -50,12 +59,14 @@ Also, if this is your first time connecting to your Raspberry Pi headlessly (i.e
 
         sudo ./install.sh
 
-The installation process takes about 15 minutes. After it has completed, you will have a running lighttpd php7 web server, wireless access point, and BATMAN Advanced mesh node. Connecting to the network and navigating to a browser page will redirect you to your new captive portal page. It's only going to be a boilerplate (aka, default) lighttpd web page, so head into /var/www/html and create a new index.html file and go nuts.
+The installation process takes about 5 minutes. After it has completed, you will have a running NextCloud instance and a wireless access point. Connect to http://nextcloudpi.local to activate your instalnce!
 
 From here, fork, build, share your ideas, and have fun!
 
 references
 ----------
 * [subnodes website](http://www.subnodes.org/)
+* [NextCloudPi configuration](https://docs.nextcloudpi.com/en/how-to-configure-nextcloudpi)
+* [NextCloudPi website](https://nextcloudpi.com)
 * [Raspberry Pi](http://www.raspberrypi.org/)
 * [eyebeam](http://eyebeam.org/)
